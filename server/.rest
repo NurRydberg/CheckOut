@@ -1,2 +1,2 @@
-POST http://localhost:3000/payments/create-checkout-session
+POST http://localhost:3001/payments/create-checkout-session
 
