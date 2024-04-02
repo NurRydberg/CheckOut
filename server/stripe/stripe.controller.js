@@ -1,4 +1,4 @@
-const initStripe = require('.stripe.js');
+const initStripe = require('../stripe');
 
 const createCheckOutSession = async (req, res) => {
 
