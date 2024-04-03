@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Confirmation from "./Confirmation";
+import Payment from "./Payment";
 
 const App = () => {
   const [user, setUser] = useState<string>("");
@@ -33,17 +36,7 @@ const App = () => {
     console.log(data);
   };
 
-  const handlePayment = async () => {
-    const response = await fetch(
-      "http://localhost:3001/payments/create-checkout-session",
-      {
-        method: "POST",
-      }
-    );
 
-    const data = await response.json();
-    console.log(data);
-  };
 
   const login = async () => {
     const response = await fetch("http://localhost:3001/api/auth/login", {
@@ -79,12 +72,16 @@ const App = () => {
 
   return (
     <>
+    <Routes>
+      <Route path="/" element={<Payment />} />
+      <Route path="/confirmation" element={<Confirmation />} />
+    </Routes>
       <h1>{user ? "Inloggad:" + user : "Utloggad"} </h1>
       <button onClick={register}>Registrera</button>
       <button onClick={login}>Logga in</button>
       <button onClick={logout}>Logga ut</button>
 
-      <button onClick={handlePayment}>Show me the money</button>
+
     </>
   );
 };

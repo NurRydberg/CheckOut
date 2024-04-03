@@ -1,2 +1,2 @@
 POST http://localhost:3001/payments/create-checkout-session
-
+Content-Type: application/json
