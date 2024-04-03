@@ -71,7 +71,8 @@ const App = () => {
   }
 
   return (
-    <>
+<>
+    
     <Routes>
       <Route path="/" element={<Payment />} />
       <Route path="/confirmation" element={<Confirmation />} />
@@ -82,7 +83,8 @@ const App = () => {
       <button onClick={logout}>Logga ut</button>
 
 
-    </>
+</>
+  
   );
 };
 

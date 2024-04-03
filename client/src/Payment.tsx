@@ -1,4 +1,6 @@
 const Payment = () => {
+
+    
   const handlePayment = async () => {
     const response = await fetch(
       "http://localhost:3001/payments/create-checkout-session",
@@ -13,6 +15,7 @@ const Payment = () => {
   return (
     <>
       <button onClick={handlePayment}>Show me the money</button>
+      <h1>hej</h1>
     </>
   );
 };
