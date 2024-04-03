@@ -1,4 +1,5 @@
 const express = require('express')
+const cookieSession = require('cookie-session')
 const cors = require('cors')
 require('dotenv').config()
 
@@ -12,6 +13,12 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
+
+app.use(cookieSession({
+    secret: "s3cr3tk3y",
+    maxAge: 1000 * 60 * 60,
+}))
+
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
 
