@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Confirmation from "./Confirmation";
 import Payment from "./Payment";
+// import { BrowserRouter } from "react-router-dom";
 
 const App = () => {
   const [user, setUser] = useState<string>("");
