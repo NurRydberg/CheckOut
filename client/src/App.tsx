@@ -4,6 +4,7 @@ import Confirmation from "./Confirmation";
 import Payment from "./Payment";
 import LogIn from "./LogIn";
 import LogOut from "./LogOut";
+import Register from "./Register";
 
 
 
@@ -25,20 +26,6 @@ const App = () => {
     authorize();
   }, []);
 
-  const register = async () => {
-    const response = await fetch("http://localhost:3001/api/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: "fakeemail@email.com",
-        password: "123456789",
-      }),
-    });
-    const data = await response.json();
-    console.log(data);
-  };
 
 
 
@@ -52,9 +39,9 @@ const App = () => {
       <Route path="/confirmation" element={<Confirmation />} />
     </Routes>
       <h1>{user ? "Inloggad:" + user : "Utloggad"} </h1>
-      <button onClick={register}>Registrera</button>
       <LogIn setUser={setUser} />
       <LogOut setUser={setUser} />
+      <Register setUser={setUser} />
 
 
 </>
