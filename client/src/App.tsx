@@ -6,6 +6,7 @@ import LogIn from "./LogIn";
 import LogOut from "./LogOut";
 import Register from "./Register";
 import Products from "./Products";
+import "./App.css";
 
 
 
@@ -37,7 +38,7 @@ const App = () => {
     
     <Routes>
       <Route path="/" element={<Products />} />
-      <Route path="/" element={<Payment />} />
+      <Route path="/payment" element={<Payment />} />
       <Route path="/confirmation" element={<Confirmation />} />
     </Routes>
       <h1>{user ? "Inloggad:" + user : "Utloggad"} </h1>

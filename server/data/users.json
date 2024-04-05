@@ -3,5 +3,15 @@
     "email": "Nur@mail.se",
     "password": "$2b$10$20Iirzbw.tiDGoghBXz6ZOeTKZNzWXZJU/WqM8Wjg9LzOBRum8cte",
     "stripeId": "cus_Prv0OAnH8Fi0ZO"
+  },
+  {
+    "email": "hej@hejson.se",
+    "password": "$2b$10$dyjKkJW5k4Um95bSx3By0OrPcPazBOKs.UxL114emYrVQ/ZjexSJy",
+    "stripeId": "cus_Ps1CvivNnsHtTN"
+  },
+  {
+    "email": "",
+    "password": "$2b$10$HX2sn1nCBo2.Uki2LKUDl.H617LcPFsISCOOrZn5zccET0dR7wT4e",
+    "stripeId": "cus_Ps1Etph2HxLBUg"
   }
 ]

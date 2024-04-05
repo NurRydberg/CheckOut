@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './App.css'; // Se till att du importerar din CSS-fil
 
 interface IProduct {
     id: string;
@@ -12,7 +13,6 @@ interface IProduct {
 }
 
 export const Products = () => {
-
     const [products, setProducts] = useState<IProduct[]>([]);
 
     useEffect(() => {
@@ -30,7 +30,6 @@ export const Products = () => {
                 price: product.default_price.unit_amount / 100 // Stripe använder cent som standardenhet, så vi delar med 100 för att få priset i SEK
             }));
 
-        
             setProducts(productsList);
         } catch (error) {
             console.log(error);
@@ -40,20 +39,20 @@ export const Products = () => {
     return (
         <>
         <h2>Products</h2>
-        {products.map(product => (
-            <div key={product.id}>
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <p>{product.price}</p>
-                {product.images && product.images.map((image, index) => (
-                    <img key={index} src={image} alt={product.name} style={{ width: "200px"}} />
-                ))}
-
-            </div>
-        ))}
+        <div className="products-grid">
+          {products.map(product => (
+              <div key={product.id}>
+                 <h3>{product.name}</h3>
+                 <p>{product.description}</p>
+                 <p>{product.price}</p>
+                 {product.images && product.images.map((image, index) => (
+                      <img key={index} src={image} alt={product.name} style={{ width: "200px"}} />
+                  ))}
+              </div>
+          ))}
+        </div>
         </>
     );
 };
 
 export default Products;
-

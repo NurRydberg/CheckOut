@@ -40,3 +40,116 @@
 .read-the-docs {
   color: #888;
 }
+
+/* 
+/* Generella stilar */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+ }
+ 
+ /* Huvudlayout */
+ .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+ }
+ 
+ /* Typografi */
+ h1, h2, h3, h4, h5, h6 {
+  color: #333;
+ }
+ 
+ /* Knappar */
+ button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+ }
+ 
+ button:hover {
+  background-color: #0056b3;
+ }
+ 
+ /* Produkter */
+ .product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+ }
+ 
+ .product-card img {
+  width: 100%;
+  height: auto;
+ }
+ 
+ .product-card h2 {
+  margin-top: 20px;
+ }
+ 
+ .product-card p {
+  color: #666;
+ }
+ 
+ /* Responsiv design */
+ @media screen and (max-width: 768px) {
+  .container {
+     padding: 10px;
+  }
+ 
+  .product-card {
+     margin: 10px;
+  }
+ }
+ 
+
+
+ .products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Skapar två kolumner med lika bredd */
+  grid-gap: 20px; /* Lägger till utrymme mellan produkterna */
+  padding: 20px; /* Lägger till utrymme runt rutnätet */
+ }
+ 
+ .product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 20px;
+  text-align: center;
+ }
+ 
+ .product-card img {
+  width: 100%;
+  height: auto;
+ }
+ 
+ .product-card h2 {
+  margin-top: 20px;
+ }
+ 
+ .product-card p {
+  color: #666;
+ }
+ 
+
+
+ .products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px; /* Lägger till utrymme mellan produkterna */
+  padding: 20px; /* Lägger till utrymme runt rutnätet */
+ }
