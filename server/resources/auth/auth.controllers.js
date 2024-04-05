@@ -1,6 +1,9 @@
+const initStripe = require("../../stripe")
 const fetchUsers = require("../../utils/fetchUsers")
 const fs = require("fs").promises
 const bcrypt = require("bcrypt")
+
+
 
 const register = async (req, res) => {
 
@@ -15,6 +18,13 @@ const register = async (req, res) => {
     }
 
 
+
+    const stripe = initStripe()
+    
+    const customer = await stripe.customers.create({
+        email,
+    });
+
     //Kryptera lösenordet
     const hashedPassword = await bcrypt.hash(password, 10)
 
@@ -23,7 +33,8 @@ const register = async (req, res) => {
     //Skapa användaren till databasen
     const newUser = {
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        stripeId: customer.id,
     }
     users.push(newUser)
     await fs.writeFile("./data/users.json", JSON.stringify(users, null, 2))
@@ -53,12 +64,12 @@ const login = async(req, res) => {
     }
 
 
-
+    // hämnta ut id från stripe via detta när betalning ska se
     //Starta en session DET HÄR HAR JAG INTE FÖRSTÅTT. BEHÖVER FÅ DET FÖRTYDLIGAT. HUR FUNKAR DET?
     req.session.user = userExists
 
     //Skicka tillbaka ett svar
-    res.status(200).json(userExists.email)
+    res.status(200).json(userExists)
 }
 
 const logout = (req, res) => {
