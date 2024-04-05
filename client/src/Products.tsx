@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 
 interface IProduct {
-    id: number;
+    id: string;
     name: string;
     description: string;
-    price: number;
     images: string[];
+    price: number;
+    default_price: {
+        unit_amount: number;
+    };
 }
 
 export const Products = () => {
@@ -22,8 +25,12 @@ export const Products = () => {
             const data = await response.json();
             console.log(data);
 
-            const productsList: IProduct[] = data.data;
+            const productsList: IProduct[] = data.data.map((product: IProduct) => ({
+                ...product,
+                price: product.default_price.unit_amount / 100 // Stripe använder cent som standardenhet, så vi delar med 100 för att få priset i SEK
+            }));
 
+        
             setProducts(productsList);
         } catch (error) {
             console.log(error);
