@@ -8,6 +8,8 @@ const initStripe = require('./stripe')
 const userRouter = require('./resources/users/users.router')
 const authRouter = require('./resources/auth/auth.router')
 const stripeRouter = require('./stripe/stripe.router')
+const productsRouter = require('./resources/products/products.router')
+
 const app = express()
 
 app.use(cors({
@@ -21,9 +23,12 @@ app.use(cookieSession({
     maxAge: 1000 * 60 * 60,
 }))
 
+
+// ändra till samma, antingen api eller inte
 app.use("/api/users", userRouter);
 app.use("/api/auth", authRouter);
 
 app.use("/payments", stripeRouter)
+app.use("/products", productsRouter)
 
 app.listen(3001, () => console.log("💫🌷🎈🍾🎉 3001"))

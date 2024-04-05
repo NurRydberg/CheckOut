@@ -5,6 +5,7 @@ import Payment from "./Payment";
 import LogIn from "./LogIn";
 import LogOut from "./LogOut";
 import Register from "./Register";
+import Products from "./Products";
 
 
 
@@ -35,6 +36,7 @@ const App = () => {
 <>
     
     <Routes>
+      <Route path="/" element={<Products />} />
       <Route path="/" element={<Payment />} />
       <Route path="/confirmation" element={<Confirmation />} />
     </Routes>
