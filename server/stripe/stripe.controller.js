@@ -6,7 +6,6 @@ const createCheckOutSession = async (req, res) => {
     const stripe = initStripe()
     const session = await stripe.checkout.sessions.create({
         mode: "payment",
-        customer: "cus_K9Z9Z9Z9Z9Z9Z9",
         line_items: [{
             price: "price_1P1Pwv01f7VXReymUyPYhQzL",
             quantity: 1,
@@ -39,15 +38,23 @@ const verifySession = async (req, res) => {
             total: session.amount_total,
             date: new Date()
         }
-
-        const orders = JSON.parse(await fs.readFile("./orders.json"))
-        orders.push(order)
-        await fs.writeFile("./orders.json", JSON.stringify(orders, null, 4))
-
-        res.status(200).json( {verified: true})
+        try {
+            let orders = [];
+            try {
+                orders = JSON.parse(await fs.readFile("./data/orders.json"));
+            } catch (error) {
+                console.log("No orders found")
+            }
+            orders.push(order);
+            await fs.writeFile("./data/orders.json", JSON.stringify(orders, null, 2));
+            } catch (error) {
+                console.error(error);
+            }
+            res.status(200).json({ verified: true });
+        }
 
     }
 
-}
+
 
 module.exports = { createCheckOutSession, verifySession }

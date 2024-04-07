@@ -7,14 +7,15 @@ const Payment = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify([
+        body: JSON.stringify({
+        lineItems: [
           {
-            product: "price_1P1Pwv01f7VXReymUyPYhQzL",
+            price: "price_1P1Pwv01f7VXReymUyPYhQzL",
             quantity: 3,
-          },
-        ]),
-      }
-      );
+          }
+        ],
+      }),
+    });
 
     const data = await response.json();
     localStorage.setItem("sessionId", JSON.stringify(data.sessionId));
@@ -24,7 +25,7 @@ const Payment = () => {
   return (
     <>
       <button onClick={handlePayment}>KÖP</button>
-      <h1>hej</h1>
+
     </>
   );
 };
