@@ -1,6 +1,9 @@
 import React from 'react';
-import { IProduct } from './Products';
 
+interface IProduct {
+  id: string;
+  name: string;
+}
 
 const ShoppingCart = ({ cartItems, removeFromCart }: { cartItems: IProduct[], removeFromCart: (productId: string) => void }) => {
     return (
@@ -17,3 +20,5 @@ const ShoppingCart = ({ cartItems, removeFromCart }: { cartItems: IProduct[], re
         </div>
     );
 };
+
+export default ShoppingCart;

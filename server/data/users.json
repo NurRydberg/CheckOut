@@ -13,5 +13,10 @@
     "email": "",
     "password": "$2b$10$HX2sn1nCBo2.Uki2LKUDl.H617LcPFsISCOOrZn5zccET0dR7wT4e",
     "stripeId": "cus_Ps1Etph2HxLBUg"
+  },
+  {
+    "email": "Lina@Linson.com",
+    "password": "$2b$10$GJVw2v4KztdQtkrWU7xB2.ummGLHyMqTMJvHTqmzyEmmrGmhTFzdy",
+    "stripeId": "cus_PsnobQWtfmficb"
   }
 ]
