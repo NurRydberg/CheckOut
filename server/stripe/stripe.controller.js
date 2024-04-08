@@ -6,6 +6,7 @@ const createCheckOutSession = async (req, res) => {
     const stripe = initStripe()
     const session = await stripe.checkout.sessions.create({
         mode: "payment",
+        /// HÄÄÄÄÄÄÄÄR ska den inloggade kundens id reggas TODO:
         customer: "cus_PsnobQWtfmficb",
         line_items: cart.map(item => {
             return {

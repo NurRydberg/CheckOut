@@ -18,11 +18,13 @@ interface CartItem {
 interface ICartContext {
     cart: CartItem[],
     addToCart: (product: Product) => void
+    removeFromCart: (productId: string) => void
 }
 
-const initalValues = {
+const initalValues: ICartContext = {
     cart: [],
-    addToCart: () => { }
+    addToCart: () => { },
+    removeFromCart: () => { }
 }
 
 const CartContext = createContext<ICartContext>(initalValues)
@@ -51,11 +53,25 @@ const CartProvider = ({ children }: PropsWithChildren) => {
         }
     }
 
+    const removeFromCart = (productId: string) => {
+        const clonedCart = [...cart];
+        const productIndex = clonedCart.findIndex(item => item.product.id === productId);
+
+        if (productIndex !== -1) {
+            if (clonedCart[productIndex].quantity > 1) {
+                clonedCart[productIndex].quantity--;
+            } else {
+                clonedCart.splice(productIndex, 1);
+            }
+            setCart(clonedCart);
+        }
+    };
+
     return (
-        <CartContext.Provider value={{ cart, addToCart }}>
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
             {children}
         </CartContext.Provider>
     )
 }
 
-export default CartProvider
+export default CartProvider;
