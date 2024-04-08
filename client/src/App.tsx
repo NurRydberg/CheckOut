@@ -23,8 +23,6 @@ const Navbar = () => {
         <br />
         <a href="/payment"> <FontAwesomeIcon icon={faShoppingCart} />
            {totalItems > 0 && <span>({totalItems})</span>}</a>
-        <br />
-        <a href="/confirmation">Confirmation</a>
       </ul>
     </nav>
   );
