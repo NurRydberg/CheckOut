@@ -6,9 +6,8 @@ const Confirmation = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        console.log("nu körs jag")
         const verifySession = async () => {
-            console.log("och jag hoppar in i funktionen")
+
             let sessionId;
             const dataFromLs = localStorage.getItem("sessionId");
 

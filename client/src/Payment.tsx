@@ -7,15 +7,13 @@ const Payment = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-        lineItems: [
-          {
-            price: "price_1P1Pwv01f7VXReymUyPYhQzL",
-            quantity: 3,
-          }
-        ],
-      }),
-    });
+        body: JSON.stringify([{
+          product: "price_1P1Pwv01f7VXReymUyPYhQzL", //blir inte hårdkodat sen, ser ut olika beroende på hur man gjort sin kundvagn
+          quantity: 2
+        },
+      ]),
+      })
+
 
     const data = await response.json();
     localStorage.setItem("sessionId", JSON.stringify(data.sessionId));
