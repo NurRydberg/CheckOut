@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import './App.css'; // Se till att du importerar din CSS-fil
+import { useCart } from "./context/CartContext";
 
 interface IProduct {
     id: string;
@@ -15,6 +16,7 @@ interface IProduct {
 export const Products = () => {
     const [products, setProducts] = useState<IProduct[]>([]);
     const [cartItems, setCartItems] = useState<IProduct[]>([]);
+    const { addToCart } = useCart();
 
     useEffect(() => {
         fetchProducts();
@@ -36,9 +38,9 @@ export const Products = () => {
         }
     };
 
-    const addToCart = (product: IProduct) => {
-        setCartItems([...cartItems, product]);
-    };
+    // const addToCart = (product: IProduct) => {
+    //     setCartItems([...cartItems, product]);
+    // };
 
     const removeFromCart = (productId: string) => {
         setCartItems(cartItems.filter(item => item.id !== productId));

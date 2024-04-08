@@ -9,7 +9,7 @@ const createCheckOutSession = async (req, res) => {
         customer: "cus_PsnobQWtfmficb",
         line_items: cart.map(item => {
             return {
-                price: item.product,
+                price: item.product.default_price.id,
                 quantity: item.quantity,
             }
         }),

@@ -7,6 +7,7 @@ import LogOut from "./LogOut";
 import Register from "./Register";
 import Products from "./Products";
 import "./App.css";
+import CartProvider from "./context/CartContext";
 
 
 
@@ -33,7 +34,8 @@ const App = () => {
 
   return (
 <>
-    
+    <CartProvider>
+
     <Routes>
       <Route path="/" element={<Products />} />
       <Route path="/payment" element={<Payment />} />
@@ -43,6 +45,9 @@ const App = () => {
       <LogIn setUser={setUser} />
       <LogOut setUser={setUser} />
       <Register setUser={setUser} />
+
+    </CartProvider>
+      
 
 
 </>
