@@ -75,7 +75,9 @@ body {
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 4px;
+  transition: background-color 0.3s ease;
  }
+ 
  
  button:hover {
   background-color: #0056b3;
@@ -128,8 +130,33 @@ body {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  margin: 20px;
   padding: 20px;
   text-align: center;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+
+ .product-card:hover {
+  transform: scale(1.05);
+ }
+
+ .product-card img {
+ width: 100%;
+ height: auto;
+ border-radius: 10px;
+}
+
+.product-card h2 {
+  margin-top: 20px;
+  font-size: 1.5em;
+ }
+
+ .product-card p {
+  color: #666;
+  font-size: 1em;
  }
  
  .product-card img {
@@ -156,3 +183,42 @@ body {
 
 
  
+ nav {
+  background-color: #d8b7b7;
+  color: #fff;
+  padding: 10px 0;
+ }
+ 
+ nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+ }
+ 
+ nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+ }
+ 
+ nav ul li a:hover {
+  background-color: #555;
+  color: #fff;
+ }
+ 
+
+ @media screen and (max-width: 768px) {
+  .container {
+     padding: 10px;
+  }
+ 
+  .product-card {
+     margin: 10px;
+  }
+ 
+  .products-grid {
+     grid-template-columns: 1fr;
+  }
+ }

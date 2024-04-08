@@ -3,7 +3,7 @@ import "./payment.css";
 
 
 const Payment = () => {
-  const {cart} = useCart();
+  const {cart, addToCart, removeFromCart} = useCart();
 
   const handlePayment = async () => {
     const response = await fetch(
@@ -28,14 +28,18 @@ const Payment = () => {
       <ul>
         {cart.map((item) => (
           <li className="product-item" key={item.product.id}>
-            <img
-              className="product-image"
-              src={item.product.images[0]}
-              alt={item.product.name}
-            />
             <div className="product-details">
+              <img
+                className="product-image"
+                src={item.product.images[0]}
+                alt={item.product.name}
+              />
               <div className="product-name">{item.product.name}</div>
-              <div className="product-quantity">Antal: {item.quantity}</div>
+            </div>
+            <div className="quantity-controls">
+              <button onClick={() => removeFromCart(item.product.id)}>-</button>
+              <div className="product-quantity">{item.quantity}</div>
+              <button onClick={() => addToCart(item.product)}>+</button>
             </div>
           </li>
         ))}
