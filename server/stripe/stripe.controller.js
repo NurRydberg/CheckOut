@@ -6,8 +6,8 @@ const createCheckOutSession = async (req, res) => {
     const stripe = initStripe()
     const session = await stripe.checkout.sessions.create({
         mode: "payment",
-        /// HÄÄÄÄÄÄÄÄR ska den inloggade kundens id reggas TODO:
-        customer: "cus_PsnobQWtfmficb",
+
+        customer: req.session.user.stripeId,
         line_items: cart.map(item => {
             return {
                 price: item.product.default_price.id,

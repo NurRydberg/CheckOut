@@ -14,6 +14,7 @@ const Payment = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(cart),
+        credentials: "include",
       })
 
 

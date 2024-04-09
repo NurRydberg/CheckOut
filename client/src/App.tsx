@@ -8,30 +8,40 @@ import Register from "./Register";
 import Products from "./Products";
 import "./App.css";
 import CartProvider, { useCart } from "./context/CartContext";
-import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
-  const {cart} = useCart();
+const Navbar = ({ user }) => {
+ const { cart } = useCart();
+ const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
 
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+ const renderLoginOrLogout = () => {
+    if (user) {
+      return <a href="/logout">Log Out</a>;
+    } else {
+      return <a href="/login">Log In</a>;
+    }
+ };
 
-  return (
-    <nav>
-      <ul>
-        <a href="/">Products</a>
-        <br />
-        <a href="/payment"> <FontAwesomeIcon icon={faShoppingCart} />
-           {totalItems > 0 && <span>({totalItems})</span>}</a>
-      </ul>
-    </nav>
-  );
+ return (
+  <nav className="navbar">
+    <ul className="nav-links">
+      <li><Link to="/">Products</Link></li>
+      <li><Link to="/register">Register</Link></li>
+      <li>{user ? <Link to="/logout">Log Out</Link> : <Link to="/login">Log In</Link>}</li>
+      <h1>{user ? `Inloggad: ` + user : `Utloggad` } </h1>
+      <li className="payment-link"><Link to="/payment"> <FontAwesomeIcon icon={faShoppingCart} />
+         {totalItems > 0 && <span>({totalItems})</span>}</Link></li>
+    </ul>
+  </nav>
+);
 };
 
 const App = () => {
-  const [user, setUser] = useState<string>("");
+ const [user, setUser] = useState<string>("");
 
-  useEffect(() => {
+ useEffect(() => {
     const authorize = async () => {
       const response = await fetch("http://localhost:3001/api/auth/authorize", {
         credentials: "include",
@@ -44,25 +54,25 @@ const App = () => {
       }
     };
     authorize();
-  }, []);
+ }, []);
 
-  return (
+ return (
     <>
       <CartProvider>
-        <Navbar />
+        <Navbar user={user} />
 
         <Routes>
           <Route path="/" element={<Products />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/login" element={<LogIn setUser={setUser} />} />
+          <Route path="/logout" element={<LogOut setUser={setUser} />} />
+          <Route path="/register" element={<Register setUser={setUser} />} />
         </Routes>
-        <h1>{user ? "Inloggad:" + user : "Utloggad"} </h1>
-        <LogIn setUser={setUser} />
-        <LogOut setUser={setUser} />
-        <Register setUser={setUser} />
+
       </CartProvider>
     </>
-  );
+ );
 };
 
 export default App;
