@@ -2,10 +2,16 @@ import { useCart } from "./context/CartContext";
 import "./payment.css";
 
 
-const Payment = () => {
+
+
+const Payment = ({user}) => {
   const {cart, addToCart, removeFromCart} = useCart();
 
   const handlePayment = async () => {
+    if (!user) {
+      alert("Du måste vara inloggad för att kunna köpa.");
+      return;
+    }
     const response = await fetch(
       "http://localhost:3001/payments/create-checkout-session",
       {
