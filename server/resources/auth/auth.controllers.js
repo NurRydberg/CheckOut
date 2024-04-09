@@ -49,20 +49,14 @@ const login = async(req, res) => {
     //Kolla så att användaren finns
     const {email, password} = req.body
 
-
     const users = await fetchUsers()
     const userExists = users.find(u => u.email === email)
 
-
-
-
     //Kolla så att lösenordet stämmer och att användaren finns
-
 
     if (!userExists || !await bcrypt.compare(password, userExists.password)) {
         return res.status(400).json("Username or password is incorrect")
     }
-
 
     // hämnta ut id från stripe via detta när betalning ska se
     //Starta en session DET HÄR HAR JAG INTE FÖRSTÅTT. BEHÖVER FÅ DET FÖRTYDLIGAT. HUR FUNKAR DET?

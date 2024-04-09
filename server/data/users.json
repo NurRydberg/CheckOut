@@ -1,22 +1,12 @@
 [
   {
-    "email": "Nur@mail.se",
-    "password": "$2b$10$20Iirzbw.tiDGoghBXz6ZOeTKZNzWXZJU/WqM8Wjg9LzOBRum8cte",
-    "stripeId": "cus_Prv0OAnH8Fi0ZO"
+    "email": "sanna@sanna.se",
+    "password": "$2b$10$D16lwebDD1ZFa1cOfH1SHu0PS1bingRZcoqU2slPhrVDH.Sx0G6u6",
+    "stripeId": "cus_PtNQArRq5iGSkA"
   },
   {
-    "email": "hej@hejson.se",
-    "password": "$2b$10$dyjKkJW5k4Um95bSx3By0OrPcPazBOKs.UxL114emYrVQ/ZjexSJy",
-    "stripeId": "cus_Ps1CvivNnsHtTN"
-  },
-  {
-    "email": "",
-    "password": "$2b$10$HX2sn1nCBo2.Uki2LKUDl.H617LcPFsISCOOrZn5zccET0dR7wT4e",
-    "stripeId": "cus_Ps1Etph2HxLBUg"
-  },
-  {
-    "email": "Lina@Linson.com",
-    "password": "$2b$10$GJVw2v4KztdQtkrWU7xB2.ummGLHyMqTMJvHTqmzyEmmrGmhTFzdy",
-    "stripeId": "cus_PsnobQWtfmficb"
+    "email": "nur@nur.se",
+    "password": "$2b$10$3GIXq99PsOVG41BkhxV9be69Tz.mcZkvFrdgN08rY.5v7tIEmTFRm",
+    "stripeId": "cus_PtNSkp85SpPdAs"
   }
 ]
