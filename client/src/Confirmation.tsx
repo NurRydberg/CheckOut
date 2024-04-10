@@ -52,13 +52,13 @@ const Confirmation = () => {
         <>
             <h1>Confirmation</h1>
             {isLoading ? (
-                <p>Laddar...</p>
+                <p>Loading...</p>
             ) : verified ? (
-                <h3>TACK FÖR DITT KÖP</h3>
+                <h3>Thank You for your purchase!</h3>
             ) : error ? (
-                <h3>Ett fel uppstod: {error}</h3>
+                <h3>An error occurred {error}</h3>
             ) : (
-                <h3>Ingen session att verifiera</h3>
+                <h3>No session to verify</h3>
             )}
         </>
     );

@@ -30,7 +30,7 @@ const LogIn: React.FC<LogInProps> = ({setUser}) => {
           setErrorMessage("");
         } else {
           setUser("");
-          setErrorMessage("Fel användarnamn och/eller lösenord. Försök igen.");
+          setErrorMessage("Wrong username or password. Please try again.");
           setEmail("");
           setPassword("");
         }

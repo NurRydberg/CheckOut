@@ -3,35 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: rgb(238, 196, 203);
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+  background-color: #fefae0;
 }
 
 .card {
@@ -48,7 +20,7 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #fefae0;
  }
  
  /* Huvudlayout */
@@ -65,8 +37,8 @@ body {
  
  /* Knappar */
  button {
-  background-color: #007BFF;
-  color: white;
+  background-color: #ccd5ae;
+  color: black;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -81,18 +53,10 @@ body {
  
  
  button:hover {
-  background-color: #0056b3;
+  background-color: #d4a373;
  }
  
  /* Produkter */
- .product-card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  margin: 20px;
-  padding: 20px;
-  text-align: center;
- }
  
  .product-card img {
   width: 100%;
@@ -128,7 +92,7 @@ body {
  }
  
  .product-card {
-  background-color: #fff;
+  background-color: #e9edc9;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: 20px;
@@ -186,7 +150,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #f8f9fa;
+  background-color: #ccd5ae;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
  }
 
@@ -201,13 +165,19 @@ body {
   list-style: none;
  }
  
- .nav-links a {
-  text-decoration: none;
-  color: #333;
+ .payment-link {
+
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  padding: 10px;
  }
 
- .payment-link {
-  margin-left: auto;
+ .payment-link :hover {
+  background-color: #d4a373;
+  color: #fff;
+  padding: 10px;
+  transition: 0.3s ease, color 0.2s ease;
  }
  
  @media (max-width: 768px) {
@@ -231,7 +201,7 @@ body {
  }
  
  nav ul li a:hover {
-  background-color: #555;
+  background-color: #d4a373;
   color: #fff;
  }
  
@@ -249,3 +219,5 @@ body {
      grid-template-columns: 1fr;
   }
  }
+
+ 

@@ -11,13 +11,6 @@ const Navbar = ({ user }) => {
     const { cart } = useCart();
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
    
-    // const renderLoginOrLogout = () => {
-    //    if (user) {
-    //      return <a href="/logout">Log Out</a>;
-    //    } else {
-    //      return <a href="/login">Log In</a>;
-    //    }
-    // };
    
     return (
      <nav className="navbar">
@@ -25,10 +18,14 @@ const Navbar = ({ user }) => {
          <li><Link to="/">Products</Link></li>
          {!user && <li><Link to="/register">Register</Link></li>}
          <li>{user ? <Link to="/logout">Log Out</Link> : <Link to="/login">Log In</Link>}</li>
-         <h1>{user ? `Inloggad: ` + user.email : `Utloggad` } </h1>
-         <li className="payment-link"><Link to="/payment"> <FontAwesomeIcon icon={faShoppingCart} />
-            {totalItems > 0 && <span>({totalItems})</span>}</Link></li>
+         <h4>{user ? `Welcome ` + user.email : `Not logged in` } </h4>
        </ul>
+       <li className="payment-link">
+  <Link to="/payment" style={{ textDecoration: 'none', color: '#333' }}>
+    <FontAwesomeIcon icon={faShoppingCart} />
+    {totalItems > 0 && <span> Items in cart: {totalItems}</span>}
+  </Link>
+</li>
      </nav>
    );
    };

@@ -45,7 +45,7 @@
 }
 
 .quantity-controls button {
-    background-color: #007bff;
+    background-color: #ccd5ae;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -57,7 +57,7 @@
 }
 
 .quantity-controls button:hover {
-    background-color: #0056b3;
+    background-color: #d4a373;
 }
 
 .quantity-controls button:disabled {

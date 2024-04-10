@@ -31,7 +31,7 @@ const Payment = ({user}) => {
 
   return (
     <div className="shopping-cart">
-      <h2>Din kundkorg</h2>
+      <h2>Your cart 🛒</h2>
       <ul>
         {cart.map((item) => (
           <li className="product-item" key={item.product.id}>
@@ -52,7 +52,7 @@ const Payment = ({user}) => {
         ))}
       </ul>
       <button className="buy-button" onClick={handlePayment}>
-        KÖP
+        BUY 💸
       </button>
     </div>
   );
