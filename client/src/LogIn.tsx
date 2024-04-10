@@ -8,6 +8,7 @@ interface LogInProps {
 const LogIn: React.FC<LogInProps> = ({setUser}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     
 
     const login = async () => {
@@ -26,8 +27,17 @@ const LogIn: React.FC<LogInProps> = ({setUser}) => {
     
         if (response.status === 200) {
           setUser(data);
+          setErrorMessage("");
+        } else if (response.status === 400) {
+          setUser("");
+          setErrorMessage("Användaren finns inte. Vänligen registrera dig först.");
+          setEmail("");
+          setPassword("");
         } else {
           setUser("");
+          setErrorMessage("Fel användarnamn och/eller lösenord. Försök igen.");
+          setEmail("");
+          setPassword("");
         }
       };
     
@@ -47,6 +57,7 @@ const LogIn: React.FC<LogInProps> = ({setUser}) => {
             onChange={(e) => setPassword(e.target.value)}
         />
         <button onClick={login}>Log In</button>
+        {errorMessage && <p>{errorMessage}</p>}
         </div>
     );
     }

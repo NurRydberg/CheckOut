@@ -7,31 +7,16 @@ import LogOut from "./LogOut";
 import Register from "./Register";
 import Products from "./Products";
 import "./App.css";
-import CartProvider, { useCart } from "./context/CartContext";
-import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-
-const Navbar = () => {
-  const {cart} = useCart();
-
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-
-  return (
-    <nav>
-      <ul>
-        <a href="/">Products</a>
-        <br />
-        <a href="/payment"> <FontAwesomeIcon icon={faShoppingCart} />
-           {totalItems > 0 && <span>({totalItems})</span>}</a>
-      </ul>
-    </nav>
-  );
-};
+import CartProvider from "./context/CartContext";
+import Navbar from "./Navbar";
 
 const App = () => {
-  const [user, setUser] = useState<string>("");
+ const [user, setUser] = useState<string>("");
 
-  useEffect(() => {
+
+
+
+ useEffect(() => {
     const authorize = async () => {
       const response = await fetch("http://localhost:3001/api/auth/authorize", {
         credentials: "include",
@@ -44,25 +29,25 @@ const App = () => {
       }
     };
     authorize();
-  }, []);
+ }, []);
 
-  return (
+ return (
     <>
       <CartProvider>
-        <Navbar />
+        <Navbar user={user} />
 
         <Routes>
           <Route path="/" element={<Products />} />
-          <Route path="/payment" element={<Payment />} />
+          <Route path="/payment" element={<Payment user={user}/>} />
           <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/login" element={<LogIn setUser={setUser} />} />
+          <Route path="/logout" element={<LogOut setUser={setUser} />} />
+          <Route path="/register" element={<Register setUser={setUser} />} />
         </Routes>
-        <h1>{user ? "Inloggad:" + user : "Utloggad"} </h1>
-        <LogIn setUser={setUser} />
-        <LogOut setUser={setUser} />
-        <Register setUser={setUser} />
+
       </CartProvider>
     </>
-  );
+ );
 };
 
 export default App;
