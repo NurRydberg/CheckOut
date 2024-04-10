@@ -25,7 +25,7 @@ const verifySession = async (req, res) => {
     const stripe = initStripe()
 
     const sessionId = req.body.sessionId
-
+    console.log(sessionId)
     const session = await stripe.checkout.sessions.retrieve(sessionId)
 
     if (session.payment_status === "paid") {

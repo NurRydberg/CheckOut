@@ -13,26 +13,26 @@ const Confirmation = () => {
 
             if (dataFromLs) {
                 sessionId = JSON.parse(dataFromLs);
-            }
-
-            const response = await fetch("http://localhost:3001/payments/verify-session", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ sessionId })
-            })
-
-            const data = await response.json();
-
-            if (response.ok) {
-                setVerified(data.verified);
-                setIsLoading(false);
-
-                if (data.verified) {
-                    localStorage.clear();
+                const response = await fetch("http://localhost:3001/payments/verify-session", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ sessionId })
+                })
+    
+                const data = await response.json();
+    
+                if (response.ok) {
+                    setVerified(data.verified);
+                    setIsLoading(false);
+    
+                    if (data.verified) {
+                        localStorage.clear();
+                    }
                 }
             }
+
         }
         verifySession();
     }, [])
