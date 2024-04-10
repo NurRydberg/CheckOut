@@ -29,7 +29,7 @@ const Register: React.FC<RegisterProps> = ({ setUser }) => {
     });
     const data = await response.json();
     console.log(data);
-    setUser(data); // Uppdatera användarstatusen efter registreringen
+    setUser(data); 
   };
 
   return (

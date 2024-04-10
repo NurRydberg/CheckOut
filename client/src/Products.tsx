@@ -38,10 +38,6 @@ export const Products = () => {
         }
     };
 
-    // const addToCart = (product: IProduct) => {
-    //     setCartItems([...cartItems, product]);
-    // };
-
     const removeFromCart = (productId: string) => {
         setCartItems(cartItems.filter(item => item.id !== productId));
     };

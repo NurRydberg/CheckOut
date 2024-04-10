@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useCart } from "./context/CartContext";
+
 
 const Confirmation = () => {
     const [verified, setVerified] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(""); // Tillägg för felhantering
+    const { clearCart } = useCart();
 
     useEffect(() => {
         const verifySession = async () => {
@@ -30,7 +33,8 @@ const Confirmation = () => {
                     setIsLoading(false);
 
                     if (data.verified) {
-                        localStorage.clear();
+                        localStorage.removeItem("sessionId");
+                        clearCart();
                     }
                 } else {
                     setIsLoading(false);
@@ -42,7 +46,7 @@ const Confirmation = () => {
             }
         };
         verifySession();
-    }, []); // Antaget att det inte finns ytterligare beroenden
+    }, []);
 
     return (
         <>

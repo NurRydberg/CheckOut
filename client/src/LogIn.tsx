@@ -28,11 +28,6 @@ const LogIn: React.FC<LogInProps> = ({setUser}) => {
         if (response.status === 200) {
           setUser(data);
           setErrorMessage("");
-        } else if (response.status === 400) {
-          setUser("");
-          setErrorMessage("Användaren finns inte. Vänligen registrera dig först.");
-          setEmail("");
-          setPassword("");
         } else {
           setUser("");
           setErrorMessage("Fel användarnamn och/eller lösenord. Försök igen.");
