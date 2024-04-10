@@ -28,10 +28,14 @@ const Confirmation = () => {
             if (response.ok) {
                 setVerified(data.verified);
                 setIsLoading(false);
+
+                if (data.verified) {
+                    localStorage.clear();
+                }
             }
         }
         verifySession();
-    })
+    }, [])
 
     return (
         <>

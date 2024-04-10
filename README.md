@@ -19,3 +19,7 @@ Welcome to CheckOut, a fullstack application that enables users to browse produc
 - New Terminal for Client: First cd client then run npm i and npm run dev
 - New Terminal for Server: First cd server Run npm i and node server
 - Navigate to http://localhost:5173/ in your browser to use the app
+
+
+## API Endpoints
+

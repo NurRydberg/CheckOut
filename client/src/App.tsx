@@ -7,7 +7,7 @@ import LogOut from "./LogOut";
 import Register from "./Register";
 import Products from "./Products";
 import "./App.css";
-import CartProvider, { useCart } from "./context/CartContext";
+import CartProvider from "./context/CartContext";
 import Navbar from "./Navbar";
 
 const App = () => {
