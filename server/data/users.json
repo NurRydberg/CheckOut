@@ -1,12 +1,2 @@
 [
-  {
-    "email": "sanna@sanna.se",
-    "password": "$2b$10$D16lwebDD1ZFa1cOfH1SHu0PS1bingRZcoqU2slPhrVDH.Sx0G6u6",
-    "stripeId": "cus_PtNQArRq5iGSkA"
-  },
-  {
-    "email": "nur@nur.se",
-    "password": "$2b$10$3GIXq99PsOVG41BkhxV9be69Tz.mcZkvFrdgN08rY.5v7tIEmTFRm",
-    "stripeId": "cus_PtNSkp85SpPdAs"
-  }
 ]
